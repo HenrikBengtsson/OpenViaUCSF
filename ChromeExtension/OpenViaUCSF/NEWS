@@ -1,5 +1,10 @@
 CHANGELOG:
 
+OpenViaUCSF v1.3.0 [2015-07-14]
+o Now using the new UCSF VPN urls (the old ones will be 
+  decommissioned by Fall 2015, but are still recognized).
+
+
 OpenViaUCSF v1.2.0 [2012-07-12]
 o If a page is already opened via the UCSF VPN, then it is possible
   to reopen it, or one of its links, without the UCSF VPN.

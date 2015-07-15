@@ -2,8 +2,9 @@
 // Title: 'Open via USCF'
 // Author: Henrik Bengtsson
 // Created on: 2011-05-01
-// Last updated on: 2012-07-12
+// Last updated on: 2015-07-15
 // License: LGPL (>= 3)
+// Full source: https://github.com/HenrikBengtsson/OpenViaUCSF
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 function trimString(s) {
   return s.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
@@ -11,7 +12,8 @@ function trimString(s) {
 
 function isVpnUrl(url) {
   url = trimString(url);
-  return (url.indexOf("https://vpn.ucsf.edu/") != -1);
+  return (url.indexOf("https://remote.ucsf.edu/") != -1 ||
+          url.indexOf("https://vpn.ucsf.edu/") != -1);
 }
 
 function urlToVpnUrl(url) {
@@ -19,7 +21,7 @@ function urlToVpnUrl(url) {
   if (isVpnUrl(url)) {
     return url;
   }
-  var vpnUrl = "https://vpn.ucsf.edu/dana/home/launch.cgi?url=";
+  var vpnUrl = "https://remote.ucsf.edu/dana/home/launch.cgi?url=";
   url = trimString(url);
   vpnUrl = vpnUrl + url;
   return vpnUrl;
@@ -32,8 +34,8 @@ function vpnUrlToUrl(vpnUrl) {
   }
 
   vpnUrl = trimString(vpnUrl);
-  var pattern = /https:[/][/]vpn.ucsf.edu[/](.*),DanaInfo=([^,]*)(|,(.*))[+](.*)/;
-  var mods = vpnUrl.replace(pattern, "$4");
+  var pattern = /https:[/][/](vpn|remote).ucsf.edu[/](.*),DanaInfo=([^,]*)(|,(.*))[+](.*)/;
+  var mods = vpnUrl.replace(pattern, "$5");
   // Known modifiers:
   // "SSL": https
   // "SSO=U": ?
@@ -41,7 +43,7 @@ function vpnUrlToUrl(vpnUrl) {
   if (mods == "SSL") {
     protocol = "https";
   }
-  var url = vpnUrl.replace(pattern, protocol + "://$2/$1$5");
+  var url = vpnUrl.replace(pattern, protocol + "://$3/$2$6");
   return url;
 }
 
@@ -60,7 +62,7 @@ function updateContextMenuEntries(tabId, changeInfo, tab) {
   
   // Default entries
   if (!json) {
-    json = '{ "USCF": { "name": "USCF VPN", "urlPrefix": "https://vpn.ucsf.edu/dana/home/launch.cgi?url=" } }'
+    json = '{ "USCF": { "name": "USCF VPN", "urlPrefix": "https://remote.ucsf.edu/dana/home/launch.cgi?url=" } }'
   }
   
   var contexts = ["page", "link"];
@@ -143,6 +145,8 @@ function onClick(info, tab) {
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 // HISTORY:
+// 2015-07-15
+// o Support for new UCSF VPN URL format. Old ones are still recognized.
 // 2012-07-12
 // o Now the context menu entries toggles between "Open ... via UCSF VPN"
 //   and "Open ... without UCSF VPN" depending on the current URL.  Same
