@@ -2,7 +2,7 @@
 // Title: 'Open via USCF'
 // Author: Henrik Bengtsson
 // Created on: 2011-05-01
-// Last updated on: 2015-07-15
+// Last updated on: 2015-07-25
 // License: LGPL (>= 3)
 // Full source: https://github.com/HenrikBengtsson/OpenViaUCSF
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -49,10 +49,10 @@ function vpnUrlToUrl(vpnUrl) {
 
 function updateAddressBarIcon(tabId, changeInfo, tab) {
   if (isVpnUrl(tab.url)) {
-    chrome.pageAction.setTitle({tabId:tab.id, title:"Reopen current page without UCSF VPN"});
+    chrome.pageAction.setTitle({tabId:tab.id, title:"Reopen current page without UCSF VPN Web Proxy"});
     chrome.pageAction.show(tabId);
   } else {
-    chrome.pageAction.setTitle({tabId:tab.id, title:"Reopen current page via UCSF VPN"});
+    chrome.pageAction.setTitle({tabId:tab.id, title:"Reopen current page via UCSF VPN Web Proxy"});
     chrome.pageAction.show(tabId);
   }
 }
@@ -62,7 +62,7 @@ function updateContextMenuEntries(tabId, changeInfo, tab) {
   
   // Default entries
   if (!json) {
-    json = '{ "USCF": { "name": "USCF VPN", "urlPrefix": "https://remote.ucsf.edu/dana/home/launch.cgi?url=" } }'
+    json = '{ "USCF": { "name": "USCF VPN Web Proxy", "urlPrefix": "https://remote.ucsf.edu/dana/home/launch.cgi?url=" } }'
   }
   
   var contexts = ["page", "link"];

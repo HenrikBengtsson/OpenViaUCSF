@@ -1,5 +1,9 @@
 CHANGELOG:
 
+OpenViaUCSF v1.3.0.9000 [2015-07-25]
+o Updated labels to say "UCSF VPN Web Proxy" instead of "UCSF VPN".
+
+
 OpenViaUCSF v1.3.0 [2015-07-14]
 o Now using the new UCSF VPN urls (the old ones will be 
   decommissioned by Fall 2015, but are still recognized).
