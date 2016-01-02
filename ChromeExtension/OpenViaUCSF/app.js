@@ -2,8 +2,9 @@
 // Title: 'Open via USCF'
 // Author: Henrik Bengtsson
 // Created on: 2011-05-01
-// Last updated on: 2015-07-25
-// License: LGPL (>= 3)
+// Last updated on: 2016-01-02
+// Copyright holder: Henrik Bengtsson
+// License: LGPL (>= 3) [https://www.gnu.org/licenses/lgpl.txt]
 // Full source: https://github.com/HenrikBengtsson/OpenViaUCSF
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 function trimString(s) {

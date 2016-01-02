@@ -2,6 +2,7 @@ CHANGELOG:
 
 OpenViaUCSF v1.3.0.9000 [2015-07-25]
 o Updated labels to say "UCSF VPN Web Proxy" instead of "UCSF VPN".
+o Clarify copyright and add URL to LGPL (>=3) license.
 
 
 OpenViaUCSF v1.3.0 [2015-07-14]
