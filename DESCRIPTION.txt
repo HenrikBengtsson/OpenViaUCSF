@@ -1,0 +1,19 @@
+With 'Open via UCSF' you can right click on any link to open it via the UCSF VPN Web Proxy. You can also reopen the current page via the Web Proxy by clicking on the icon in the address bar.  This is useful when for instance accessing journal articles when outside of the UCSF computer network.
+
+When installed, the extensions adds (i) an 'Open in new tab via UCSF VPN Web Proxy' entry to the context ("right-click") menu, and (ii) a 'Reopen current page via UCSF VPN Web Proxy' icon to the address bar. The first time you open a link via UCSF, you will be asked to authenticate yourself using your UCSF credentials. All following links will be opened directly, until you restart the browser.
+
+REQUIREMENTS:
+This extension will only be useful to users that have an account at University of California, San Francisco (UCSF).
+
+NEWS:
+v1.3.1 (2016-01-02): Updated labels to say "UCSF VPN Web Proxy" instead of "UCSF VPN".
+v1.3.0 (2015-07-14): Now supporting the new USCF VPN URL format. The previous one will be decommissioned Fall 2015.
+
+PRIVACY POLICY:
+None of your information, including your UCSF credential, are handled by this extension.  Instead, this extension asks https://remote.ucsf.edu/ to open the URL, which handles all the authentication.  Nothing is tracked by this extension.  The permission to "Ready your browsing history" is required in order to access and modify the content of the address bar - not browsing history is accessed beyond the address of the current page viewed.
+
+OPEN SOURCE:
+This extension is distributed under LGPL (>= 3).  The source code is available via GitHub [https://github.com/HenrikBengtsson/OpenViaUCSF/]
+
+ABOUT:
+This extension is developed by Henrik Bengtsson, Department of Epidemiology & Biostatistics, University of California, San Francisco (UCSF).
