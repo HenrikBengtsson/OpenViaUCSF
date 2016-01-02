@@ -9,10 +9,6 @@
 
   "author": "Henrik Bengtsson",
 
-  "homepage_url": "https://github.com/HenrikBengtsson/OpenViaUCSF/",
-
-  "default_locale": "en",
-
   "icons": {
      "16": "OpenViaUCSF_16x16.png",
      "48": "OpenViaUCSF_48x48.png",
