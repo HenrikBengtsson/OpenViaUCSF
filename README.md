@@ -19,4 +19,4 @@ This extension is licensed under
 
 ## Changelog
 
-See [NEWS](ChromeExtension/OpenViaUCSF/NEWS) for the release history.
+See [NEWS](ChromeExtension/OpenViaUCSF/NEWS.md) for the release history.
