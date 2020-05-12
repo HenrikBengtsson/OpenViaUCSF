@@ -8,7 +8,7 @@ This extension will only be useful to users that have an account at University o
 NEWS:
 v1.4.0 (2020-05-12): Updated to new web-proxy URL https://remote-vpn01.ucsf.edu/.
 v1.3.1 (2016-01-02): Updated labels to say "UCSF VPN Web Proxy" instead of "UCSF VPN".
-v1.3.0 (2015-07-14): Now supporting the new USCF VPN URL format. The previous one will be decommissioned Fall 2015.
+v1.3.0 (2015-07-14): Now supporting the new UCSF VPN URL format. The previous one will be decommissioned Fall 2015.
 
 PRIVACY POLICY:
 None of your information, including your UCSF credential, are handled by this extension.  Instead, this extension asks https://remote-vpn01.ucsf.edu/ to open the URL, which handles all the authentication.  Nothing is tracked by this extension.  The permission to "Ready your browsing history" is required in order to access and modify the content of the address bar - not browsing history is accessed beyond the address of the current page viewed.
