@@ -2,7 +2,7 @@
 // Title: 'Open via USCF'
 // Author: Henrik Bengtsson
 // Created on: 2011-05-01
-// Last updated on: 2016-01-02
+// Last updated on: 2020-05-12
 // Copyright holder: Henrik Bengtsson
 // License: LGPL (>= 3) [https://www.gnu.org/licenses/lgpl.txt]
 // Full source: https://github.com/HenrikBengtsson/OpenViaUCSF
@@ -13,8 +13,9 @@ function trimString(s) {
 
 function isVpnUrl(url) {
   url = trimString(url);
-  return (url.indexOf("https://remote.ucsf.edu/") != -1 ||
-          url.indexOf("https://vpn.ucsf.edu/") != -1);
+  return(url.indexOf("https://remote-vpn01.ucsf.edu/") != -1 ||
+         url.indexOf("https://remote.ucsf.edu/") != -1 ||
+         url.indexOf("https://vpn.ucsf.edu/") != -1);
 }
 
 function urlToVpnUrl(url) {
@@ -22,7 +23,7 @@ function urlToVpnUrl(url) {
   if (isVpnUrl(url)) {
     return url;
   }
-  var vpnUrl = "https://remote.ucsf.edu/dana/home/launch.cgi?url=";
+  var vpnUrl = "https://remote-vpn01.ucsf.edu/dana/home/launch.cgi?url=";
   url = trimString(url);
   vpnUrl = vpnUrl + url;
   return vpnUrl;
@@ -35,7 +36,7 @@ function vpnUrlToUrl(vpnUrl) {
   }
 
   vpnUrl = trimString(vpnUrl);
-  var pattern = /https:[/][/](vpn|remote).ucsf.edu[/](.*),DanaInfo=([^,]*)(|,(.*))[+](.*)/;
+  var pattern = /https:[/][/](vpn|remote|remote-vpn01).ucsf.edu[/](.*),DanaInfo=([^,]*)(|,(.*))[+](.*)/;
   var mods = vpnUrl.replace(pattern, "$5");
   // Known modifiers:
   // "SSL": https
@@ -63,7 +64,7 @@ function updateContextMenuEntries(tabId, changeInfo, tab) {
   
   // Default entries
   if (!json) {
-    json = '{ "USCF": { "name": "USCF VPN Web Proxy", "urlPrefix": "https://remote.ucsf.edu/dana/home/launch.cgi?url=" } }'
+    json = '{ "USCF": { "name": "USCF VPN Web Proxy", "urlPrefix": "https://remote-vpn01.ucsf.edu/dana/home/launch.cgi?url=" } }'
   }
   
   var contexts = ["page", "link"];
@@ -142,24 +143,3 @@ function onClick(info, tab) {
   }
   window.open(url);
 }
-
-
-// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-// HISTORY:
-// 2015-07-15
-// o Support for new UCSF VPN URL format. Old ones are still recognized.
-// 2012-07-12
-// o Now the context menu entries toggles between "Open ... via UCSF VPN"
-//   and "Open ... without UCSF VPN" depending on the current URL.  Same
-//   for the title of the address bar icon.
-// o Added updateContextMenuEntries(); no longer done in the main script.
-// o Added trimString(), isVpnUrl(), urlToVpnUrl() and vpnUrlToUrl().
-// 2012-04-09
-// o Added address bar icon.
-// o Made into a UCSF specific app.
-// 2011-05-01
-// o Added options page.
-// o Now supports both 'page' and 'link' context-menu entries.
-// o Created.
-//   See http://code.google.com/chrome/extensions/contextMenus.html
-// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
