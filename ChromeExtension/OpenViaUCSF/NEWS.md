@@ -1,7 +1,7 @@
 # News for OpenViaUCSF
 
 
-## Version 1.3.1-9000 [2020-05-12]
+## Version 1.4.0 [2020-05-12]
 
  * BUG FIX: UCSF updated the web-proxy URL to https://remote-vpn01.ucsf.edu/.
 
